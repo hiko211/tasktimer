@@ -1,0 +1,12 @@
+<tbody id = "list">
+   <tr id="list_item">
+     <% if current_user.id == todo.user_id %>
+    <td><%= todo.created_at.strftime("%m/%d %p %l:%M") %></td>
+    <td><%= todo.title %></td>
+    <td><%= todo.tag %></td>
+    <td><%= link_to '削除', todo, method: :delete, data: { confirm: 'よろしいですか?' } %></td>
+    <td><%= link_to '編集', edit_todo_path(todo) %></td>
+    <td class="delete"><%= link_to '作業する', root_path(task_name: todo.title, task_tag: todo.tag, task_content: todo.content) %></td>
+  <% end %>
+  </tr>
+</tbody>

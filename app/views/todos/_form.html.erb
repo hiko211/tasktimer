@@ -1,0 +1,13 @@
+<div Align="center">
+<%= simple_form_for @todo, remote: true do |f| %>
+<%= f.label :タスク名 %>
+<%= f.text_field :title %>
+
+<%= f.label :タグ %>
+<%= f.select :tag, [["ブログラミング", "ブログラミング"], ["お仕事", "お仕事"], ["遊び", "遊び"], ["家事", "家事"], ["その他", "その他"]] ,class:"form-control" %>
+　 <br>
+<%= f.label :ノート %>
+<%= f.text_area :content, :size=>"60x10" %>
+  <%= f.button :submit ,"追加" %>
+<% end %>
+</div>

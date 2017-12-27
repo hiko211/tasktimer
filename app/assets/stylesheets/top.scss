@@ -1,0 +1,106 @@
+header ul{
+  width: 100%;
+  height: 54px;
+  background-color: LemonChiffon;
+  margin: 0 auto;
+  list-style:none;
+}
+
+header ul a {
+   display:block;
+   padding:20px;
+   text-decoration: none;
+   color:SlateGray;
+}
+
+header li{
+   display: inline-block;
+}
+
+.flash {
+  color: SlateGray;
+  padding-top: 10px;
+}
+
+#timer {
+    margin: auto;
+    padding: 0;
+    width: 350px;
+    height: 350px;
+    background-color: LemonChiffon;
+    border-radius:200px;
+    border: 5px solid #cecece;
+}
+#name{
+    font-family: serif;
+    font-weight: bold;
+    font-size: 45px;
+    color: SlateGray;
+    text-align: center;
+    text-decoration: underline;
+    margin: 0;
+    margin-top: 50px;
+}
+
+#text{
+    position:relative;
+    font-size: 15px;
+    margin: 0;
+    color: SlateGray;
+    font-weight: bold;
+    font-family: serif;
+    text-align: center;
+}
+
+#text > span {
+    font-size: 55px;
+    color: SlateGray;
+    font-weight: bold;
+    font-family: serif;
+}
+
+#content {
+    padding-top: 60px
+}
+
+#timer > input[type*="button"] {
+    background-color: white;
+    width: 86px;
+    height: 60px;
+    margin-top: 20px;
+    font-size: 30px;
+    font-family: serif;
+    font-weight: bold;
+    padding: 0;
+    text-align: center;
+    outline: none;
+    border-radius: 15px;
+}
+
+#timer > input[type*="button"]:active {
+    background-color: gray;
+}
+#timer > input[type*="button"]:disabled {
+    background-color: white;
+}
+#start {
+    margin-left: 40px;
+}
+#reset{
+    color:gray;
+}
+
+#colum{
+  text-align: center;
+  color:SlateGray;
+
+}
+
+footer{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    background-color: LemonChiffon;
+    color:SlateGray;
+    text-align:center;
+}

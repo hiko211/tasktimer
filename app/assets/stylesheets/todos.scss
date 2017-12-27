@@ -1,0 +1,22 @@
+// Place all the styles related to the todos controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.wrapper {
+  margin-bottom: 74px;
+  .row {
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+    word-wrap: break-word;
+  }
+}
+input[type="submit"].btn-block{
+  margin: 15px 0;
+}
+
+thead  {
+  height: 100px;
+
+}
+
+ 

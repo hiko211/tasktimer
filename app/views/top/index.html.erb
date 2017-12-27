@@ -1,0 +1,133 @@
+<script type="text/javascript">
+$(function(){
+
+    var time = 0;
+    var mid = 0;
+    var now;
+
+    var min_time = 0;
+    var sec_time = 0;
+
+    var count;
+
+    var min = $("#min");
+    var sec = $("#sec");
+
+    var start = $("#start");
+    var stop = $("#stop");
+    var reset = $("#reset");
+
+    //startボタンが押された時の処理
+    start.click(function(){
+        now = new Date(); //現在時刻
+        count = setInterval(counter, 10);
+        toggle();
+        reset.css("color", "#FF9194");
+    });
+
+    //stopボタンが押された時の処理
+    stop.click(function(){
+        mid += (new Date() - now)/1000;
+        clearInterval(count);
+        toggle();
+        reset.css("color", "red");
+    });
+
+    //resetボタンが押された時の処理
+    reset.click(function(){
+        mid = 0;
+        min.html("0");
+        sec.html("00.00");
+        reset.css("color", "gray");
+        reset.prop("disabled", true);
+    });
+
+    //時間の計算
+    function counter(){
+
+        time = mid + ((new Date() - now)/1000);
+
+        //60秒経過した時の処理
+        if(time > 60){
+            mid = 0;
+            min_time ++;
+            now = new Date();
+            time = 0;
+            sec.html();
+        }
+
+        //秒数が10秒より小さかったら01, 02のようにする
+        if(time < 10){
+            sec.html("0"+time.toFixed(2));
+        }else{
+            sec.html(time.toFixed(2));
+        }
+        min.html(min_time);
+    }
+
+    //ボタンの切り替え
+    function toggle(){
+        if(!start.prop("disabled")){
+            start.prop("disabled", true);
+            stop.prop("disabled", false);
+            reset.prop("disabled", true);
+        }else{
+            start.prop("disabled", false);
+            stop.prop("disabled", true);
+            reset.prop("disabled", false);
+        }
+    }
+});
+
+</script>
+
+<body>
+ <div id="content">
+   <div id="timer">
+     <h2 id="name">Tasktimer</h2>
+     <p id="text">
+       <span id="min">0</span>min
+       <span id="sec">00.00</span>sec
+     </p>
+     <input type="button" id="start" value="Start">
+     <input type="button" id="stop" value="Stop" disabled>
+     <input type="button" id="reset" value="Reset" disabled>
+   </div>
+ </div>
+
+ <div id="title">
+   <tr>
+    <td align="center"><b> タスク：</b></td>
+    <td><input type="text" name="task" size="30" maxlength="20"></td>
+  </tr>
+ </div>
+
+ <div id ="goaltime">
+  <tr>
+   <td align="center"><b> 目標時間：</b></td>
+   <td><input type="text" name="goaltime" size="8" maxlength="5"></td>
+  </tr>
+ </div>
+
+ <div id ="category">
+  <tr>
+    <td align="center"><b> カテゴリー：</b></td>
+    <select name=”category”>
+      <option value=”work”>ブログラミング</option>
+      <option value=”work”>お仕事</option>
+      <option value=”hobby”>遊び</option>
+      <option value=”hobby”>家事</option>
+    </select>
+  </tr>
+　</div>
+　<br>
+　<div id ="note">
+  <td align="center"><b> ノート：</b>
+  <textarea name="example" cols="50" rows="10"></textarea>
+　</div>
+  <br>
+  <form>
+   <button type='submit' name='action' value='send'>送信</button>
+   <button type='submit' name='action' value='save'>下書き保存</button>
+  </form>
+</body>

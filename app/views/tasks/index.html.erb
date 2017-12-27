@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+<h1>Task一覧</h1>
+   <table>
+    <thead>
+     <tr>
+       <th>日時</th>
+       <th>タスク</th>
+       <th>作業時間</th>
+       <th>タグ</th>
+     </tr>
+     </thead>
+
+    <tbody>
+     <% @tasks.each do |task| %>
+      <tr>
+      <% if current_user.id == task.user_id %>
+       <td><%= task.created_at.strftime("%m/%d %p %l:%M") %></td>
+       <td><%= task.title %></td>
+       <td><%= task.min %>分<%= task.sec %>秒</td>
+       <td><%= task.tag %></td>
+       <td><%= link_to '詳細', task %></td>
+       <td><%= link_to '削除', task, method: :delete, data: { confirm: 'よろしいですか?' } %></td>
+      </tr>
+     <% end %>
+     <% end %>
+   </tbody>
+  </table>
+
+
+              <%= link_to "時間を測る", root_path %>
+  </div>
+</div>

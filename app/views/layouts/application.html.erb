@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tasktimer</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+ <header>
+    <ul>
+    <li><%= link_to "TOP", root_path %></li>
+    <% if user_signed_in? %>
+     <li><%= link_to "タスク一覧", tasks_path %></li>
+     <li><%= link_to "ToDoリスト", todos_path %></li>
+     <li><%= link_to 'マイページ', edit_user_registration_path %></li>
+     <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+    <% else %>
+     <li><%= link_to 'ログイン', new_user_session_path  %></li>
+     <li><%= link_to 'サインアップ', new_user_registration_path %></li>
+    <% end %>
+    </ul>
+ </header>
+<body>
+
+<%= yield %>
+
+</body>
+
+<footer>
+ <p>Tasktimer</p>
+ <p>© 2017 Copyright Hiko Kato.</p>
+</footer>
+
+</html>

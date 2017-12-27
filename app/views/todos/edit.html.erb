@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+  <h2>Todoを編集する</h2>
+
+  <%= form_for(@todo) do |f| %>
+
+  <% if @todo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @todo.errors.count %>件のエラーがあります。</h2>
+
+      <ul>
+      <% @todo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title, class: 'form-control' %>
+
+  <br>
+  <%= f.label :tag %>
+  <%= f.text_field :tag, class: 'form-control' %>
+
+  <br>
+  <%= f.label :note %>
+  <%= f.text_field :content, class: 'form-control' %>
+
+  <br>
+  <%= f.submit '編集する', class: 'btn btn-primary btn-block' %>
+
+<% end %>
+
+<%= link_to "Todo一覧画面にもどる", todos_path %>
+
+  </div>
+</div>

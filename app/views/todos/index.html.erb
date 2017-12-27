@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+
+  
+
+   <h1>Todo一覧</h1>
+   <br><a><%= link_to "Todoを追加する", new_todo_path, remote: true %></a>
+   <div id="todo-form"></div>
+    <!-- <table class="table">
+      <thead>
+       <tr>
+        <th>作成日</th>
+        <th>タスク</th>
+        <th>タグ</th>
+       </tr>
+      </thead>
+      <%#= render @todos %>
+    </table> -->
+    <div id="todos">
+      <%= render partial: "todos/index", locals: { todos: @todos } %>
+    </div>
+  </div>
+</div>

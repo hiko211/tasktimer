@@ -116,8 +116,12 @@ $(function(){
      <input type="button" id="reset" value="Reset" disabled>
    </div>
  </div>
+ </body>
 
+ <form>
+ <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
  <div id="colum">
+
  <%= form_for(@task) do |f| %>
     <%= f.label :タスク名 %>
     <%= f.text_field :title, value: params[:task_name] %>
@@ -132,8 +136,9 @@ $(function(){
   <%= hidden_field_tag :min %>
   <%= hidden_field_tag :sec %>
   </div>
+  </div>
+</form>
 
-</body>
 <% end %>
 </div>
 </div>

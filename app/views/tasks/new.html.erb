@@ -18,23 +18,17 @@
 
 <script type="text/javascript">
 $(function(){
-
     var time = 0;
     var mid = 0;
     var now;
-
     var min_time = 0;
     var sec_time = 0;
-
     var count;
-
     var min = $("#min");
     var sec = $("#sec");
-
     var start = $("#start");
     var stop = $("#stop");
     var reset = $("#reset");
-
     //startボタンが押された時の処理
     start.click(function(){
         now = new Date(); //現在時刻
@@ -42,7 +36,6 @@ $(function(){
         toggle();
         reset.css("color", "#FF9194");
     });
-
     //stopボタンが押された時の処理
     stop.click(function(){
         mid += (new Date() - now)/1000;
@@ -50,10 +43,8 @@ $(function(){
         toggle();
         $("input#min").val($("#min").text())
         $("input#sec").val($("#sec").text())
-
         reset.css("color", "red");
     });
-
     //resetボタンが押された時の処理
     reset.click(function(){
         mid = 0;
@@ -62,12 +53,9 @@ $(function(){
         reset.css("color", "gray");
         reset.prop("disabled", true);
     });
-
     //時間の計算
     function counter(){
-
         time = mid + ((new Date() - now)/1000);
-
         //60秒経過した時の処理
         if(time > 60){
             mid = 0;
@@ -76,7 +64,6 @@ $(function(){
             time = 0;
             sec.html();
         }
-
         //秒数が10秒より小さかったら01, 02のようにする
         if(time < 10){
             sec.html("0"+time.toFixed(2));
@@ -84,9 +71,7 @@ $(function(){
             sec.html(time.toFixed(2));
         }
         min.html(min_time);
-
     }
-
     //ボタンの切り替え
     function toggle(){
         if(!start.prop("disabled")){
@@ -100,7 +85,6 @@ $(function(){
         }
     }
 });
-
 </script>
 
 <body>
@@ -116,12 +100,8 @@ $(function(){
      <input type="button" id="reset" value="Reset" disabled>
    </div>
  </div>
- </body>
 
- <form>
- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
  <div id="colum">
-
  <%= form_for(@task) do |f| %>
     <%= f.label :タスク名 %>
     <%= f.text_field :title, value: params[:task_name] %>
@@ -136,9 +116,8 @@ $(function(){
   <%= hidden_field_tag :min %>
   <%= hidden_field_tag :sec %>
   </div>
-  </div>
-</form>
 
+</body>
 <% end %>
 </div>
 </div>
